@@ -1,20 +1,18 @@
-#include <stdlib.h>
 #include <iostream>
 #include <utility>
 
-class Item {
- public:
+struct Item {
   // Constructor for "Item"
-  Item(int iNew) {
-    i = iNew;
-    printf("Creating item: %d numero: %d\n", __LINE__, i);
+  Item(int value) {
+    value = value;
+    printf("Creating item: %d numero: %d\n", __LINE__, value);
   }
 
   // Destructor for "Item"
-  ~Item() { printf("Destroying item: %d numero: %d\n", __LINE__, i); }
+  ~Item() { printf("Destroying item: %d numero: %d\n", __LINE__, value); }
 
-  void h() { this->next = nullptr; }
-  int i = 0;
+  void reset_next_to_nullptr() { this->next = nullptr; }
+  int value = 0;
   Item* next = nullptr;
 };
 
@@ -24,7 +22,7 @@ class iList {
   void listNodes() const {
     Item* node = head;
     while (node != nullptr) {
-      printf("i=%d\n", node->i);
+      printf("i=%d\n", node->value);
       node = node->next;
     }
   }
@@ -87,7 +85,7 @@ class iList {
 void PrintRecurse(Item* node) {
   printf("PrintRecurse: Printing all items in Linked List\n");
   if (node != nullptr) {
-    printf("i=%d\n", node->i);
+    printf("i=%d\n", node->value);
     PrintRecurse(node->next);
   } else {
     return;
@@ -104,9 +102,9 @@ int main() {
   PrintRecurse(list.head);
 
   // Unit Test for the Linked List Demo
-  if (list.head->i == 12) {
+  if (list.head->value == 12) {
     printf("Test1: Passed\n");
   } else {
-    printf("Test1: Failed i=%d\n", list.head->i);
+    printf("Test1: Failed value=%d\n", list.head->value);
   }
 }

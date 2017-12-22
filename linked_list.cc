@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+// Template to make the SinglyLinkedList class work for SLLs of all datatypes
 template <class deftype>
 class SinglyLinkedList {
  public:
@@ -108,6 +109,7 @@ class SinglyLinkedList {
 };
 
 int main() {
+  // Demo with a double list
   {
     SinglyLinkedList<double> newlist;
     newlist.push_front(10.0);
@@ -120,13 +122,13 @@ int main() {
     newlist.pop_back();
     newlist.list_nodes();
   }
+  // Demo with a std::string list
   {
-    std::cout << "hdfjlsdfklsdjkfljsdlf" << std::endl;
-    SinglyLinkedList<double> list;
-    list.push_back(10.0);
+    SinglyLinkedList<std::string> list;
+    list.push_back("Hello this is text.");
     list.list_nodes();
     list.pop_front();
-    list.push_front(40.0);
+    list.push_front("What is this?");
     list.list_nodes();
   }
 }

@@ -1,8 +1,7 @@
 #include <iostream>
-#include <stdlib.h>
 
 class Item {
-public:
+ public:
   // Constructor for "Item"
   Item(int iNew) {
     i = iNew;
@@ -17,31 +16,31 @@ public:
   Item *next = nullptr;
 };
 
+// List all of the items in the linked list that begins at "node"
 void iterator(Item *node) {
   printf("iterator: Listing all items in Linked List\n");
   while (node != nullptr) {
     printf("i=%d\n", node->i);
-    node = (*node).next; // Could also be done with the shorthand: node->next
+    node = (*node).next;  // Could also be done with the shorthand: node->next
   }
 }
 
 int main() {
-  // Initializes an "Item" on the Stack (Calling the Constructor, and pasing a value to iNew, and creates a reference to the "Item" on the Stack)
+  // Initializes an "Item" on the Stack.
   Item a(12);
-  // Initializes the "Item" reference phi as the refernce of a
+  // Initializes the "Item" reference phi as the reference of a.
   Item &phi = a;
   Item b(99);
-  Item c(37);
-  // Sets the "next" atribute of "Item a" to the address reference of "Item b"
+  // Sets the "next" atribute of "Item a" to the address reference of "Item b".
   a.next = &b;
-  b.next = &c;
 
-  // Initializes an "Item" on the Heap, and passes a parameter
-  Item *d = new Item(34);
-  (*d).next = &a; // Dereferenceing the pointer d and inserting the address reference of "Item" a
+  // Initializes an "Item" on the Heap, and passes a parameter.
+  Item *c = new Item(34);
+  c->next = &a;  // Make the next member variable of d point to the address of a
+  b.next = c;
 
-  iterator(d);
+  iterator(c);
 
   // Frees the "Item" d on the Heap, first calling the "Item" destructor
-  delete d;
+  delete c;
 }
