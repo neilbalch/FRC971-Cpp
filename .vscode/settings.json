@@ -1,0 +1,19 @@
+{
+  "files.associations": {
+    "utility": "cpp",
+    "iostream": "cpp",
+    "chrono": "cpp",
+    "cstdint": "cpp",
+    "ctime": "cpp",
+    "exception": "cpp",
+    "initializer_list": "cpp",
+    "iosfwd": "cpp",
+    "istream": "cpp",
+    "limits": "cpp",
+    "ostream": "cpp",
+    "ratio": "cpp",
+    "streambuf": "cpp",
+    "type_traits": "cpp",
+    "typeinfo": "cpp"
+  }
+}
