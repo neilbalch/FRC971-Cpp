@@ -48,11 +48,11 @@ class SimpleKalmanFilter {
 };
 
 int main() {
-  SimpleKalmanFilter kf(8.0, 2.0, 3.0);
+  SimpleKalmanFilter kf(8.0, 2.0,
+                        12.0 /* Increase this to make the filter more stable*/);
 
   // Test data. More is better. This example is supposed to have an actual value
-  // of 10. The spread of the data should be +/- 3.0, given the input to the
-  // Kalman Filter above.
+  // of 10.
   std::vector<double> data = {7.1,  8.5,  11.3, 12.0, 10.0, 8.5,
                               9.3,  10.2, 12.7, 11.8, 10.1, 9.8,
                               11.3, 8.4,  9.8,  12.8, 10.3, 9.1};
@@ -61,7 +61,7 @@ int main() {
   // data.
   std::ofstream fs;
   fs.open("kf.csv");
-  fs << "i,Estimate\n";
+  fs << "i, data, Estimate\n";
 
   // Sequentially give the Kalman Filter the estimate list data.
   for (int i = 0; i < data.size(); i++) {
@@ -71,7 +71,7 @@ int main() {
     std::cout << "Iter: " << i << " Est: " << kf.GetEstimate() << std::endl;
 
     // Write a new line to the filestream with the current estimate.
-    fs << i << "," << kf.GetEstimate() << "\n";
+    fs << i << "," << data[i] << "," << kf.GetEstimate() << "\n";
   }
 
   // Close the filestream.
