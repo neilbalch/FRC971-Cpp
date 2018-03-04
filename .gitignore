@@ -1,3 +1,6 @@
 # Compiled files (windows and mac/linux)
 *.exe
 *.out
+
+# .csv file from SimpleKalmanFilter.cc
+kf.csv
