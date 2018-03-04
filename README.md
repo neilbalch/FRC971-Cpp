@@ -13,8 +13,9 @@ C++ learning projects I did on FRC971. Best compiled with `-std=c++11` or above.
   * `manual_ll.cc`: Not-really-a-singly-*l*inked-*l*ist demo
   * `sll_demo.cc`: *S*ingly *L*inked *L*ist demo
 * `a.out` and `*.exe`: Shouldn't exist because all compiled files are excluded by `.gitignore`
-* `README.md`: EYYYYYYYYYYY You are here!
 * `project_euler_1.cc`: Code sample performing the [Project Euler Problem 1](projecteuler.net/problem=1)
+* `README.md`: EYYYYYYYYYYY You are here!
+* `SimpleKalmanFilter.cc`: Demo of a simple Kalman Filter based on [this video series](https://www.youtube.com/playlist?list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT).
 
 ## TODO
 
