@@ -48,17 +48,16 @@ class SimpleKalmanFilter {
 };
 
 int main() {
-  SimpleKalmanFilter kf(8.0, 2.0,
-                        12.0 /* Increase this to make the filter more stable*/);
+  SimpleKalmanFilter kf(8.0, 2.0, 24.0 /* Increase to stablise filter*/);
 
-  // Test data. More is better. This example is supposed to have an actual value
-  // of 10.
-  std::vector<double> data = {7.1,  8.5,  11.3, 12.0, 10.0, 8.5,
-                              9.3,  10.2, 12.7, 11.8, 10.1, 9.8,
-                              11.3, 8.4,  9.8,  12.8, 10.3, 9.1};
+  // Create test data.
+  std::vector<double> data(500);
+  for (int i = 0; i < data.size(); i++) {
+    // Fill data[i] with a random number from 100 to 6. (mean of 103)
+    data[i] = rand() % 6 + 100;
+  }
 
-  // Initialise a filestream that will output a kf.csv file that contains plot
-  // data.
+  // Initialise a filestream that creates a kf.csv file with plot data.
   std::ofstream fs;
   fs.open("kf.csv");
   fs << "i, data, Estimate\n";
@@ -68,7 +67,8 @@ int main() {
     kf.UpdateEstimate(data[i]);
 
     // Print out the current estimate.
-    std::cout << "Iter: " << i << " Est: " << kf.GetEstimate() << std::endl;
+    std::cout << "Iter: " << i << " Data: " << data[i]
+              << " Est: " << kf.GetEstimate() << std::endl;
 
     // Write a new line to the filestream with the current estimate.
     fs << i << "," << data[i] << "," << kf.GetEstimate() << "\n";
