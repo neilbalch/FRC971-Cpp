@@ -16,6 +16,7 @@ C++ learning projects I did on FRC971. Best compiled with `-std=c++11` or above.
 * `project_euler_1.cc`: Code sample performing the [Project Euler Problem 1](projecteuler.net/problem=1)
 * `README.md`: EYYYYYYYYYYY You are here!
 * `SimpleKalmanFilter.cc`: Demo of a simple Kalman Filter based on [this video series](https://www.youtube.com/playlist?list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT).
+* `MultithreadingExample.cc`: Example of a mutex locker for shared resources.
 
 ## TODO
 
